@@ -1,20 +1,20 @@
 import React from 'react';
-import {Text, SafeAreaView, StyleSheet} from 'react-native';
+import styled from 'styled-components/native';
+
+const TextStd = styled.Text`
+  color: ${props => props.color};
+  font-size: 30px;
+`;
+const SafeAreaViewStd = styled.Text`
+  flex: 1;
+  background-color: cyan;
+`;
 
 export default () => {
   return (
-    <SafeAreaView style={styles.page}>
-      <Text style={[styles.text, {color: 'white'}]}>Olá Mundo!</Text>
-    </SafeAreaView>
+    <SafeAreaViewStd>
+      <TextStd color="red">Texto Vermelho!</TextStd>
+      <TextStd color="yellow">Texto Amarelo!</TextStd>
+    </SafeAreaViewStd>
   );
 };
-const styles = StyleSheet.create({
-  page: {
-    width: 200,
-    height: 200,
-    backgroundColor: 'red',
-  },
-  text: {
-    fontSize: 30,
-  },
-});
