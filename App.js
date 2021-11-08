@@ -1,20 +1,25 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-const TextStd = styled.Text`
-  color: ${props => props.color};
-  font-size: 30px;
-`;
-const SafeAreaViewStd = styled.Text`
+const Page = styled.SafeAreaView`
   flex: 1;
-  background-color: cyan;
+  flex-direction: row;
+  justify-content: center;
+`;
+const Square = styled.View`
+  background-color: ${props => props.color};
+  align-self: ${props => (!props.align ? 'flex-start' : props.align)};
+  width: 50px;
+  height: 50px;
 `;
 
 export default () => {
   return (
-    <SafeAreaViewStd>
-      <TextStd color="red">Texto Vermelho!</TextStd>
-      <TextStd color="yellow">Texto Amarelo!</TextStd>
-    </SafeAreaViewStd>
+    <Page>
+      <Square align="flex-end" color="red"></Square>
+      <Square align="center" color="green"></Square>
+      <Square color="blue"></Square>
+      <Square color="yellow"></Square>
+    </Page>
   );
 };
