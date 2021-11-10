@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View} from 'react-native';
+import {View, Button} from 'react-native';
 import styled from 'styled-components/native';
 
 const Page = styled.SafeAreaView`
@@ -8,17 +8,28 @@ const Page = styled.SafeAreaView`
   align-itens: center;
 `;
 const Input = styled.TextInput`
-  width: 200px;
+  width: 100%;
   height: 40px;
   border: 1px solid black;
 `;
 
+const Label = styled.Text`
+  font-size: 20px;
+  font-weight: bold;
+  color: blue;
+`;
+
 const StateComponent = () => {
   const [name, setName] = useState('Ivanildo');
+  const [bkpName, setBkpName] = useState('');
+  const handlePress = () => {
+    setBkpName(name);
+  };
   return (
     <View>
       <Input value={name} onChangeText={e => setName(e)} />
-      <Text>Nome digitado: {name}</Text>
+      <Button title="Salvar" onPress={handlePress} />
+      <Label>Nome digitado: {bkpName}</Label>
     </View>
   );
 };
