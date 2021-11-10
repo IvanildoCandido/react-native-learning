@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text} from 'react-native';
+import {Text, View} from 'react-native';
 import styled from 'styled-components/native';
 
 const Page = styled.SafeAreaView`
@@ -7,19 +7,25 @@ const Page = styled.SafeAreaView`
   justify-content: center;
   align-itens: center;
 `;
+const Input = styled.TextInput`
+  width: 200px;
+  height: 40px;
+  border: 1px solid black;
+`;
 
-const Hello = ({frase}) => {
-  return <Text>{frase}</Text>;
-};
 const StateComponent = () => {
   const [name, setName] = useState('Ivanildo');
-  return <Text>{name}</Text>;
+  return (
+    <View>
+      <Input value={name} onChangeText={e => setName(e)} />
+      <Text>Nome digitado: {name}</Text>
+    </View>
+  );
 };
 
 export default () => {
   return (
     <Page>
-      <Hello frase="Olá Mundo!" />
       <StateComponent />
     </Page>
   );
